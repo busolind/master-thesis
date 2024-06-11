@@ -1,0 +1,122 @@
+\documentclass[12pt, hidelinks]{report}
+\usepackage[table]{xcolor}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english, italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[a-1a]{pdfx}
+\usepackage[pdfa]{hyperref}
+\usepackage{bm}
+
+\usepackage{lipsum}  
+
+\usepackage{pdfpages}
+
+\usepackage[a4paper]{geometry}
+\usepackage{changepage}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{amssymb, amsmath} %\usepackage{amssymb,amsmath,amsthm}
+\usepackage{graphicx}
+%\usepackage{url}
+%\usepackage{hyperref}
+%\usepackage{epsfig}
+\usepackage{fancyhdr}
+%\usepackage{setspace}
+\usepackage{template_tesi}
+\usepackage{listings}
+
+\usepackage{xcolor}
+%\usepackage{refcheck}
+
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+%Code listing style named "codestyle"
+\lstdefinestyle{codestyle}{
+  backgroundcolor=\color{backcolour}, commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+
+\lstset{style=codestyle}
+
+%\usepackage{natbib}
+%\usepackage{graphicx}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{array}
+
+\renewcommand{\arraystretch}{1.3}  % INTERLINEA
+%\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{width=0.95\textwidth,font={small, sl},labelfont={bf}}
+\usepackage[capitalise]{cleveref}
+%\crefname{figure}{Figura}{Figura}
+%\crefname{table}{Tabella}{Tabella}
+%\crefname{chapter}{Capitolo}{Capitolo}
+%\addbibresource{biblio.bib}
+
+\graphicspath{ {images/} }
+
+% DATI STUDENTE e TESI
+\newcommand{\myTitle}{Performance evaluation of Tele-Operated Driving service in a heterogeneous urban environment}
+\newcommand{\myRefereeA}{Christian Quadri}
+\newcommand{\myName}{Davide Busolin}
+\newcommand{\myMat}{988414}
+\newcommand{\myYY}{2022/2023}
+\newcommand{\dept}{Computer Science Master's Degree}
+
+%\includeonly{chapters/introduction}
+
+\begin{document}
+\selectlanguage{english}
+
+\frontespizio
+
+% QUOTE
+\newpage
+\pagenumbering{gobble}
+\begin{flushright}
+\null\vspace{\stretch {1}}
+\emph{People think computers will keep them from making mistakes.\\They're wrong. With computers you make mistakes faster.\break --- Adam Osborne}
+\vspace{\stretch{2}}\null
+\end{flushright}    
+\newpage
+
+\beforepreface
+\afterpreface
+
+\include{chapters/introduction}
+\include{chapters/tele_operated_driving}
+\include{chapters/tod_simulator}
+\include{chapters/simulated_scenarios}
+\include{chapters/results}
+\include{chapters/conclusion}
+
+
+\bibliographystyle{IEEEtran}
+\Urlmuskip=0mu plus 2mu\relax
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{biblio}
+
+\include{chapters/acknowledgements}
+
+\end{document}

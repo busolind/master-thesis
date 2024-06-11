@@ -1,0 +1,22 @@
+\phantomsection
+\addcontentsline{toc}{chapter}{Conclusion}  
+\chapter*{Conclusion}
+\pagestyle{plain}
+The work presented in this thesis has conducted a performance evaluation of a simulated ToD service over a 5G network in a multitude of different scenarios.
+
+An overview and definition of a Tele-Operated Driving service were provided, as described by the 5G Automotive Association, together with its technical and functional requirements and a discussion of some possible use cases.
+
+In order to conduct the performance evaluation, a software basis made up of CARLA driving simulator and OMNeT++ network simulator, mated through a message-oriented middleware that enables co-simulation, was employed. It was expanded to allow for the testing of specific scenarios involving more than one vehicle and special spawning conditions for obstacles.
+More specifically, a long route spanning highway and urban sections of the chosen map was evaluated
+using increasing levels of network background generated in two different ways. A couple of scenarios involving obstacles on the vehicle's path were also devised, both with the obstacle in a fixed position from the start in an urban environment and suddenly appearing in a city and highway context.
+Each simulated scenario was evaluated over a set of parameter configurations that condition the bandwidth needed by the Host Vehicle and the amount of background network traffic.
+
+An analysis of the recorded simulation data was provided for relevant parameter configurations of each considered scenario, and it was shown that Tele-Operated Driving is certainly a possibility under the right conditions and with the correct setup. It is possible to achieve safe operation within the specifications and requirements of the 5GAA even with a basic 5G network configuration.
+
+The most impactful parameter in the success or failure of this type of service is the overall latency, or RTT, which was generally lower with a numerology index $\mu$ of 1 and influenced by channel quality and network load.
+
+Future work might include some experimentation with Carrier Aggregation for the networking side and tests in situations with external vehicle traffic using different agents as ToD operators.
+
+Achieving real-time operation of the simulation would allow for testing with human operators and verifying the effect the network delay has on their ability to keep control of the vehicle.
+
+An interesting expansion of the simulation framework would be towards being able to gather additional data from the infrastructure itself and leveraging multi-access edge computing (MEC) \cite{mec_collision_avoidance}, where collisions can be more easily avoided by assessing and predicting movements made by other road users.

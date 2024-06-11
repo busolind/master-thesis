@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[a4paper]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{pdf14}
+
+\usepackage[sorting=none]{biblatex}
+\addbibresource{biblio.bib}
+
+\newgeometry{vmargin={30mm}, hmargin={25mm}}
+
+\title{\vspace{-1.5cm}\Huge Performance evaluation of Tele-Operated Driving service in a heterogeneous urban environment}
+\author{\Large Davide Busolin - 988414}
+\date{}
+
+\begin{document}
+
+\maketitle
+%\Large
+
+\section{Introduction}
+Self-driving vehicles have been the topic of extensive research and experimentation for a number of years, with automakers and tech companies announcing major breakthroughs and the viability of the technology for public use getting closer and closer. Nevertheless, even as constant training for AI models makes them better by the day and advancements in sensor technology make them more reliable, there will be situations where human intervention is required, be it a software crash, a sensor malfunction or simply an edge case that is not contemplated by the training the model has received. Until recently, this has been accomplished by simply having a human in the vehicle at all times ready to intervene, but a possible novel solution is called \textit{Tele-Operated Driving}.
+
+\section{Context}
+Tele-Operated Driving (ToD) is a service that allows an operator, human or machine, to remotely take control of a Host Vehicle (HV) and complete the required driving tasks. This type of service is enabled by advancements in cellular network technology such as 5G.
+Studies were performed using previous technological iterations, i.e.\ 4G LTE. In \cite{remote_driving_lte_network}, \textit{Liu et al.} conducted experiments on remote driving over an LTE network, collecting data from both a scaled-size prototype and real-world measurements of publicly accessible mobile networks. In their experiments with human candidates, they concluded that with current technology at the time, remote driving was still a questionable endeavor, mainly due to the variability of network conditions.
+The 5GAA has defined a number of technical and functional requirements for the service to work over 5G network with acceptable results, together with a description of the general architecture of a system of this kind and its use cases \cite{5gaa_tod_system_requirements_architecture} \cite{5gaa_tod_use_cases_and_requirements}.
+
+\section{Thesis goal}
+The goal of this thesis is to conduct a performance evaluation of the aforementioned ToD service over a plethora of different network and physical conditions, both in an urban and rural environment involving different vehicle speeds and negotiating obstacles appearing on the vehicle's path.
+
+\section{Technologies used and experiments}
+The ToD simulation framework presented in \cite{valeriopaper} was adapted and expanded to support the required testing scenarios. It is composed of the CARLA driving simulator and the OMNeT++ network simulator, linked together by a purpose-built message-oriented middleware that enables co-simulation.
+The tested scenarios include a trip across a mix of city and highway contexts with varying network background load modeled in two different ways and varying in intensity, and tests with obstacles in both urban and rural environments in order to test the limits of Tele-Operated driving over 5G.
+
+\section{Results}
+The simulation campaign yielded promising results. For the city/highway trip scenarios, most configurations allowed the simulations to finish successfully, except for the ones where the available bandwidth was exceeded and thus control of the vehicle could not be kept. For the fixed obstacle scenario almost all configurations allowed the vehicle to stop before a collision because of the available reaction time, even when the network was saturated.
+Scenarios where the obstacle appeared suddenly and at the limits of the HV's minimum braking distance showed a proportionally lowering success rate over multiple runs the more the network was busy, being more prone to success in scenarios with numerology $\mu$ of 1 which allows for lower delays.
+
+\section{Conclusions}
+It was shown that Tele-Operated Driving is certainly a possibility under the right conditions and with the correct setup. It is possible to achieve safe operation within the specifications and requirements of the 5GAA even with a basic 5G network configuration. The most impactful parameter in the success or failure of this type of service is the overall latency, or RTT, which is influenced by channel quality, network load, and distance to the base station, being most critical during handovers.
+
+\printbibliography
+
+\end{document}
